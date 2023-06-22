@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validateform</title>
+    <link rel="stylesheet" href="C:\Users\Tamil\Desktop\bootstrap-5.0.2-dist\css\bootstrap.css">
+<style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+    }
+body
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(102, 196, 236);
+    color:blueviolet;
+    text-transform: capitalize;
+}
+
+    .form
+    {
+        
+        background-color: rgb(247, 245, 241);  
+        margin: 50px auto 0 auto; 
+        padding: 40px 40px;
+        color: black;
+        font-size: x-large;
+        
+    }
+
+    .row
+    {
+        display: grid;
+        place-content: center;
+    }
+.form-group label{
+    padding-bottom: 10px;
+}
+.form-group input
+{
+  margin-bottom: 10px;
+}
+ 
+.form-group.success p
+{
+    color: green;
+}
+
+.form-group.error p
+{
+    color: red;
+}
+.form-group.error input
+{
+    border-color: red;
+} 
+
+.form-group.success input
+{
+    border-color: green;
+}
+
+
+</style>
+</head>
+<body>
+    <div class="container-fluid ">
+        <div class="form container">
+            <div class="row">
+                <div class="col-md-12 ">
+        <h1 class="text-primary">validate By using java script</h1>
+        <form action="" id="form">
+        <div class="form-group  ">
+            <label for="firstname" >firstname</label>
+            <input type="text" class="firstname form-control" id="firstname" >
+            <p> </p>
+            <h3> </h3>
+ </div>
+ <div class="form-group">
+    <label for="lastname" >lastname</label>
+    <input type="text" class="lastname form-control" id="lastname">
+    <p> </p>
+</div>
+<div class="form-group">
+    <label for="email" >mail id</label>
+    <input type="text" class="email form-control" id="email">
+    <p> </p>
+</div>
+<div class="form-group">
+    <label for="password" >password</label>
+    <input type="password" class="password form-control" id="password">
+    <p> </p>
+</div>
+<div class="form-group ">
+    <label for="password2" >confirmPassword</label>
+    <input type="password" class="password2 form-control" id="confirmPassword">
+    <p> </p>
+</div>
+
+</form>
+</div>
+</div>
+<div class="container text-center">
+<button class="btn btn-primary btn-lg " type="submit" onclick="{clickfun();}">SUBMIT</button>
+</div>
+    </div>
+</div>
+
+
+
+
+<script>
+    const form=document.getElementById('form');
+    const firstname=document.getElementById('firstname');
+    const lastname=document.getElementById('lastname');
+    const email=document.getElementById('email');
+    const password=document.getElementById('password');
+    const password2=document.getElementById('confirmPassword');
+
+    
+
+// function clickfun() {
+//     alert("please fill the above items");
+
+// }
+
+
+// function clickfun(){
+//     validateform([firstname,lastname,email,password,password2]);
+// }
+
+// function validateform(inputs)
+// {
+// inputs.forEach((input) => {
+//     if(input.value.trim()==="")
+//     {
+//         alert("please fill the " +input.id);
+//     }
+//     else{
+// alert("successfully finished");
+//     }
+// });
+// }
+
+function clickfun()
+{
+    validateData([firstname,lastname,email,password,password2]); 
+    firstName(firstname,3);
+    lastName(lastname,3);
+    passWord(password,8);
+    confirmPassword(password2,8,password);
+    mailId(email);
+
+}
+
+
+
+// form.addEventListener("submit",function(clickfun)
+// {
+//     clickfun.preventDefault();
+//     validateData([firstname,lastname,email,password,password2]);
+// });
+
+function validateData(inputs)
+{
+    inputs.forEach((input) => {
+        if(input.value.trim()==="")
+        {
+           error(input,"please fill"+" "+input.id); 
+        }
+        else{
+            success(input);
+        }
+    });
+}
+
+function error(input,message)
+{
+    let formGroup=input.parentElement;
+ formGroup.className="form-group error"
+ const p=formGroup.querySelector("p");
+ p.innerHTML=message;
+}
+function success(input)
+{
+ let formGroup=input.parentElement;
+ formGroup.className="form-group success"
+ const p=formGroup.querySelector("p");
+ p.innerHTML="";
+}
+
+function firstName(input,min)
+{
+    const alpha=/^[A-Za-z]+$/;
+    const number=/^[0-9]+$/;
+    let size=input.value.trim().length;
+    if(input.value.match(alpha)){       
+        if(size>=min)
+        {
+            success(input); 
+        }
+        else{
+            error(input, "Use alphabets minimum above 3 characters in"+"  "+input.id); 
+        }
+           
+    }
+   else if(input.value.match(number)){ 
+    alert("invalid"+"  "+input.id);
+    error(input, "Use Alphabets Only in"+"  "+input.id);
+   }
+
+   else if(input.value.trim()==="")
+        {
+           error(input,"please fill"+" "+input.id); 
+        }
+
+   
+
+}
+
+function lastName(input,min)
+{
+    const alpha=/^[A-Za-z]+$/;
+    const number=/^[0-9]+$/;
+    let size=input.value.trim().length;
+    if(input.value.match(alpha)){ 
+        if(size>=min)      
+        {
+            success(input); 
+        }
+        else{
+            error(input, "Use alphabets minimum above 3 characters in"+"  "+input.id);
+        }
+            
+    }
+   else if(input.value.match(number)){ 
+    alert("invalid"+"  "+input.id);
+    error(input, "Use Alphabets Only in"+"  "+input.id);
+   }
+
+   else if(input.value.trim()==="")
+        {
+           error(input,"please fill"+" "+input.id); 
+        }
+
+}
+
+
+
+function passWord(input,min)
+{
+ let passwordSize=input.value.trim().length;
+ if(passwordSize>=min)
+ {
+    success(input);
+ }
+ else if(passwordSize<min && passwordSize>0){
+    error(input, "Use  minimum above 8 characters in"+"  "+input.id);
+ }
+
+ else if(input.value.trim()===""){
+    error(input,"please fill"+" "+input.id);
+ }
+
+}
+
+function confirmPassword(input2,min,input)
+{
+    let passwordSize=input2.value.trim().length;
+ if(passwordSize>=min)
+ {
+    if(input.value===input2.value)
+    {
+        success(input2);
+    } 
+    else{
+        error(input2, "confirm password is doesn't match with above password");  
+    }
+ }
+ 
+ 
+ else if(passwordSize<min && passwordSize>0){
+    error(input2, "Use  minimum above 8 characters in"+"  "+input2.id);
+ }
+
+ else if(input.value.trim()===""){
+    error(input2,"please fill"+" "+input2.id);
+ }
+}
+
+function mailId(input)
+{
+    const email= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(input.value.trim().match(email))
+    {
+        success(input); 
+    }
+    else if(input.value.trim()==="")
+        {
+    error(input,"please fill"+" "+input.id);
+        }
+    else{
+        alert("invalid mail id");
+        error(input,"please enter the valid mail id");
+    }
+}
+
+
+</script>
+</body>
+</html>

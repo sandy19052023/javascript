@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <button onclick="con()">click</button>
+    <div id="c"></div>
+    <input id="txt" type="text"> 
+    
+        <script>
+            
+            // let a=10;
+            // let b='10';//string
+
+            // console.log(a==b);
+
+            // console.log(a===b);//checks the  
+
+            // console.log(0==false);
+
+            // console.log(0===false);
+
+            
+            function con() {
+                let text=("do you want to close??");
+                if(confirm(text)==true)
+                {
+                  text=("YOU CLICKED OK BUTTON");
+                }
+            
+                else{
+                     text=("YOU CLICKED CLOSE BUTTON")
+                    }
+                    document.getElementById("txt").value =text;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let cal=prompt("ENTER operation:")
+       let n1=prompt("ENTER THE N1 VALUE:")
+       let n2=prompt("ENTER THE N2 VALUE:")
+       
+       if(cal=="add")
+       {
+       let add=parseInt(n1) + parseInt(n2);
+        console.log("ADDING OF N1 AND N2:"+add);
+       }
+       else if(cal=="sub"){
+       let sub=parseInt(n1) - parseInt(n2);
+         console.log(sub);
+       }
+       else if(cal=="mul")
+       {
+        let mul=parseInt(n1) * parseInt(n2);
+        console.log(mul);
+       }
+       else if(cal=="div")
+       {
+        let div=parseInt(n1) / parseInt(n2);
+        console.log(div);
+       }
+       else{
+        console.log("INVALID");
+       }
+    </script>
+</body>
+</html>

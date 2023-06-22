@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //const names=['a','b','c'];
+
+        //let obj=Object.assign({},names);
+        //console.log(names);
+
+
+
+        // let keys=['name','age','sub'];
+        // let value=['aaaa',20,'css'];
+
+        // let arun=value.map((value,i) => ({ [keys[i]]:value }));
+        // console.log(arun);
+
+
+        const scores=[
+            {name:'aaaa',goals:8},
+            {name:'bbbb',goals:5},
+            {name:'cccc',goals:3},
+            {name:'dddd',goals:10},
+        ];
+
+        console.log(scores);
+        
+        console.log(scores[0]);
+        console.log(scores[0].name);
+        console.log(scores[0].goals);
+
+        console.log(scores[1].name);
+       
+        console.table(scores);
+        scores.sort((a,b,c,d) => {
+return a.goals -b.goals;
+        });
+        scores.forEach((e) =>{
+            console.log(`${e.name} ${e.goals} ${e.index}`);
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>

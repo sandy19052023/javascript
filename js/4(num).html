@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // FOUR Number else if:
+        let a=prompt("ENTER A NUMBER:");
+        let b=prompt("ENTER B NUMBER:");
+        let c=prompt("ENTER C NUMBER:");
+        let d=prompt("ENTER D NUMBER:");
+        // if((a>b)&&(a>c)&&(a>d))
+        // {
+        // console.log("A is GREATER:"+a)
+        // }
+        // else if((b>a)&&(b>c)&&(b>d))
+        // {
+        // console.log("B IS GREATER:"+b)
+        // }
+        // else if((c>a)&&(c>b)&&(c>d))
+        // {
+        //     console.log("C IS GREATER:"+c)
+        // }
+        // else{
+        //     console.log("D IS GREATER:"+d)
+        // }
+
+// four number nested if:
+if(a>b)
+{
+    if(a>c)
+    {
+        if(a>d)
+        {
+            console.log("a is greater:"+a)
+        }
+        else{
+            console.log("d is greater:"+d)
+        }
+    }
+    // else{
+    //     console.log("c is greater:"+c)
+    // }
+}
+else if(b>c)
+{
+    if(b>d){
+        console.log("b is greater:"+b) 
+    }
+else{
+console.log("d is greater:"+d)
+}
+}
+else if(c>d)
+{
+console.log(" c is greater:"+c)
+}
+else
+{
+    console.log("d is greater:"+d)
+}
+
+    </script>
+</body>
+</html>
